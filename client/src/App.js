@@ -1,12 +1,18 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import MainRouter from './MainRouter'
+import {BrowserRouter} from 'react-router-dom'
+import { ThemeProvider } from '@material-ui/styles'
+//import theme from './theme';
+import { hot } from 'react-hot-loader';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Hello from the client side</h1>
-    </div>
-  );
-}
+    <BrowserRouter>
+      <ThemeProvider>
+        <MainRouter/>
+      </ThemeProvider>
+    </BrowserRouter>
+)}
 
-export default App;
+
+export default hot (module)(App);

@@ -1,11 +1,8 @@
-const e = require("cors");
 const express = require("express");
 const router = express.Router();
 
-router.get('/', (req, res)=>{
-    res.status(200).json({
-        response :"This is respone"
-    })
+router.get('/api/expenses/', (req, res)=>{
+    res.status(200).json("This is respone")
 }) 
 
 module.exports = router;
