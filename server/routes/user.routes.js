@@ -74,7 +74,7 @@ router.post('/api/signin', async (req, res)=>{
             return res.status('401').send({ error: "Email and password don't match." })
         }
         const token = jwt.sign({ _id: user._id }, 'MY_JWT_SECRET_KEY');
-        res.cookie('t', token, { expire: new Date() + 9999 })
+        res.cookie('t', token, { expire: new Date() + 9999 });
         res.json({
             token,
             user: {

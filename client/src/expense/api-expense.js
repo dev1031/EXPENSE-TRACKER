@@ -1,4 +1,5 @@
-import queryString from 'query-string'
+import queryString from 'query-string';
+
 const create = async (credentials, expense) => {
     try {
       let response = await fetch('http://localhost:5000/api/expenses/', {
@@ -82,6 +83,7 @@ const create = async (credentials, expense) => {
       console.log(err)
     }
   }
+
   const yearlyExpenses = async (params, credentials, signal) => {
     const query = queryString.stringify(params)
     try {
@@ -98,6 +100,7 @@ const create = async (credentials, expense) => {
       console.log(err)
     }
   }
+
   const plotExpenses = async (params, credentials, signal) => {
     const query = queryString.stringify(params)
     try {
@@ -114,6 +117,7 @@ const create = async (credentials, expense) => {
       console.log(err)
     }
   }
+
   const read = async (params, signal) => {
     try {
       let response = await fetch('http://localhost:5000/api/auction/' + params.auctionId, {

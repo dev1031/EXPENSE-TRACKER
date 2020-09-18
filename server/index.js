@@ -8,6 +8,7 @@ const userRoutes = require("./routes/user.routes");
 const expenseRoutes = require("./routes/expense.routes");
 const mongoose = require("mongoose");
 const isAuth = require('./Auth/auth');
+const userId = require('./Auth/auth');
 const PORT = 5000;
 
 const app  = express();
@@ -23,6 +24,7 @@ app.use(cors());
 app.use(helmet());
 app.use(cookieParser());
 app.use(isAuth);
+app.use(userId);
 app.use('/', userRoutes);
 app.use('/', expenseRoutes);
 

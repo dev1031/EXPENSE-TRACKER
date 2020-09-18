@@ -130,7 +130,7 @@ export default function NewExpense() {
         </CardContent>
         <CardActions>
           <Button color="primary" variant="contained" onClick={clickSubmit} className={classes.submit}>Submit</Button>
-          <Link to='/myauctions' className={classes.submit}><Button variant="contained">Cancel</Button></Link>
+          <Link to='/myauctions' className={classes.submit} style ={{textDecoration:"none"}}><Button variant="contained">Cancel</Button></Link>
         </CardActions>
       </Card>
     </div>)

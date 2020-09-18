@@ -10,7 +10,7 @@ import PrivateRoute from './auth/PrivateRoute'
 import Menu from './core/Menu'
 import NewExpense from './expense/NewExpense'
 import Expenses from './expense/Expenses'
-//import Reports from './report/Reports'
+import Reports from './report/Reports'
 
 const MainRouter = () => {
     return (<div>
@@ -24,7 +24,7 @@ const MainRouter = () => {
         <Route path="/user/:userId" component={Profile}/>
         <PrivateRoute path="/expenses/all" component={Expenses}/>
         <PrivateRoute path="/expenses/new" component={NewExpense}/>
-        {/* <PrivateRoute path="/expenses/reports" component={Reports}/> */}
+        { <PrivateRoute path="/expenses/reports" component={Reports}/> }
       </Switch>
     </div>)
 }
