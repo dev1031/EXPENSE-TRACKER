@@ -1,6 +1,6 @@
 const create = async (user) => {
     try {
-        let response = await fetch('http://localhost:5000/api/users/', {
+        let response = await fetch('https://expense-tracking-app-mern.herokuapp.com/api/users/', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -16,7 +16,7 @@ const create = async (user) => {
   
   const list = async (signal) => {
     try {
-      let response = await fetch('http://localhost:5000/api/users/', {
+      let response = await fetch('https://expense-tracking-app-mern.herokuapp.com/api/users/', {
         method: 'GET',
         signal: signal,
       })
@@ -28,7 +28,7 @@ const create = async (user) => {
   
   const read = async (params, credentials, signal) => {
     try {
-      let response = await fetch('http://localhost:5000/api/users/' + params.userId, {
+      let response = await fetch('https://expense-tracking-app-mern.herokuapp.com/api/users/' + params.userId, {
         method: 'GET',
         signal: signal,
         headers: {
@@ -45,7 +45,7 @@ const create = async (user) => {
   
   const update = async (params, credentials, user) => {
     try {
-      let response = await fetch('http://localhost:5000/api/users/' + params.userId, {
+      let response = await fetch('https://expense-tracking-app-mern.herokuapp.com/api/users/' + params.userId, {
         method: 'PUT',
         headers: {
           'Accept': 'application/json',
@@ -62,7 +62,7 @@ const create = async (user) => {
   
   const remove = async (params, credentials) => {
     try {
-      let response = await fetch('http://localhost:5000/api/users/' + params.userId, {
+      let response = await fetch('https://expense-tracking-app-mern.herokuapp.com/api/users/' + params.userId, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',

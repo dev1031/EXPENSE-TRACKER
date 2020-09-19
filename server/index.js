@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require("express");
-const helmet = require("helmet");
-const cors  = require("cors");
+//const helmet = require("helmet");
+//const cors  = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan"); 
@@ -31,8 +31,8 @@ app.use((req, res, next)=>{
     next()
 });
 app.use(morgan('short'));
-app.use(cors());
-app.use(helmet());
+//app.use(cors());
+//app.use(helmet());
 app.use(cookieParser());
 app.use(isAuth);
 app.use(userId);

@@ -1,6 +1,6 @@
 const signin = async (user)=>{
     try{
-        let response = await fetch('http://localhost:5000/api/signin' ,{
+        let response = await fetch('https://expense-tracking-app-mern.herokuapp.com/api/signin' ,{
             method:'POST',
             headers : {
                 'Accept' : 'application/json',
@@ -17,7 +17,7 @@ const signin = async (user)=>{
 
 const signout = async ()=>{
     try {
-        let response = await fetch('http://localhost:5000/api/signout' ,{
+        let response = await fetch('https://expense-tracking-app-mern.herokuapp.com/api/signout' ,{
             method:'GET'
         })
 
