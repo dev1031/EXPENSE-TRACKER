@@ -13,6 +13,10 @@ const isAuth = require('./Auth/auth');
 const userId = require('./Auth/auth');
 const app  = express();
 
+mongoose.connect(`${process.env.MONGODB_URL}/expense_tracker_app?retryWrites=true&w=majority`, {useNewUrlParser: true , useUnifiedTopology: true ,useFindAndModify: false }, (error , db )=>{
+  console.log('DataBase Connected!!')
+});
+
 app.use(cors());
 app.use(helmet());
 app.use(bodyParser.json());
@@ -29,6 +33,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 //     next()
 // });
 
+app.use('/', userRoutes);
+app.use('/', expenseRoutes);
 app.use(serveStatic(__dirname + "/build")); //
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
@@ -38,13 +44,6 @@ app.use(morgan('short'));
 app.use(cookieParser());
 app.use(isAuth);
 app.use(userId);
-
-app.use('/', userRoutes);
-app.use('/', expenseRoutes);
-
-mongoose.connect(`${process.env.MONGODB_URL}/expense_tracker_app?retryWrites=true&w=majority`, {useNewUrlParser: true , useUnifiedTopology: true ,useFindAndModify: false }, (error , db )=>{
-  console.log('DataBase Connected!!')
-});
 
 //  app.get("/", (req, res)=>{
 //      res.send("Server is up and running!!")
