@@ -15,27 +15,33 @@ const isAuth = require('./Auth/auth');
 const userId = require('./Auth/auth');
 const app  = express();
 
+app.use(cors(corsOptions));
+
+var corsOptions = {
+  origin: 'https://mern-expense-tracker-appl.herokuapp.com',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 mongoose.connect(`${process.env.MONGODB_URL}/expense_tracker_app?retryWrites=true&w=majority`, {useNewUrlParser: true , useUnifiedTopology: true ,useFindAndModify: false }, (error , db )=>{
   console.log('DataBase Connected!!')
 });
 
-//app.use(cors());
 app.use(helmet({
   contentSecurityPolicy: false,
 }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use((req, res, next)=>{
-    res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Credentials" ,'true');
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.setHeader('Access-Control-Allow-Headers','POST, GET ,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
-    if(req.method ==='OPTIONS'){
-            return res.sendStatus(200);
-        }
-    next()
-});
+// app.use((req, res, next)=>{
+//     res.header("Access-Control-Allow-Origin","*");
+//     res.header("Access-Control-Allow-Credentials" ,'true');
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     res.setHeader('Access-Control-Allow-Headers','POST, GET ,OPTIONS');
+//     res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
+//     if(req.method ==='OPTIONS'){
+//             return res.sendStatus(200);
+//         }
+//     next()
+// });
 
 app.use('/', userRoutes);
 app.use('/', expenseRoutes);
