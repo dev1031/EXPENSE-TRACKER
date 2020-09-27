@@ -20,7 +20,9 @@ mongoose.connect(`${process.env.MONGODB_URL}/expense_tracker_app?retryWrites=tru
 });
 
 app.use(cors());
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: false,
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 // app.use((req, res, next)=>{
