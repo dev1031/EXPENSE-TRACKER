@@ -8,7 +8,7 @@
     "npm": "6.14.5"
   },
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -25,6 +25,7 @@
     "lodash": "^4.17.20",
     "mongoose": "^5.10.5",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "serve-static": "^1.14.1"
   }
 }
