@@ -2,7 +2,7 @@ import queryString from 'query-string';
 
 const create = async (credentials, expense) => {
     try {
-      let response = await fetch('https://mern-expense-tracker-appl.herokuapp.com/api/expenses/', {
+      let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/expenses/', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -21,7 +21,7 @@ const create = async (credentials, expense) => {
   const listByUser = async (params, credentials, signal) => {
     const query = queryString.stringify(params)
     try {
-      let response = await fetch('https://mern-expense-tracker-appl.herokuapp.com/api/expenses?'+query, {
+      let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/expenses?'+query, {
         method: 'GET',
         signal: signal,
         headers: {
@@ -37,7 +37,7 @@ const create = async (credentials, expense) => {
 
   const currentMonthPreview = async (credentials, signal) => {
     try {
-      let response = await fetch('https://mern-expense-tracker-appl.herokuapp.com/api/expenses/current/preview', {
+      let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/expenses/current/preview', {
         method: 'GET',
         signal: signal,
         headers: {
@@ -53,7 +53,7 @@ const create = async (credentials, expense) => {
 
   const expenseByCategory = async (credentials, signal) => {
     try {
-      let response = await fetch('https://mern-expense-tracker-appl.herokuapp.com/api/expenses/by/category', {
+      let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/expenses/by/category', {
         method: 'GET',
         signal: signal,
         headers: {
@@ -70,7 +70,7 @@ const create = async (credentials, expense) => {
   const averageCategories = async (params, credentials, signal) => {
     const query = queryString.stringify(params)
     try {
-      let response = await fetch('https://mern-expense-tracker-appl.herokuapp.com/api/expenses/category/averages?'+query, {
+      let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/expenses/category/averages?'+query, {
         method: 'GET',
         signal: signal,
         headers: {
@@ -87,7 +87,7 @@ const create = async (credentials, expense) => {
   const yearlyExpenses = async (params, credentials, signal) => {
     const query = queryString.stringify(params)
     try {
-      let response = await fetch('https://mern-expense-tracker-appl.herokuapp.com/api/expenses/yearly?'+query, {
+      let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/expenses/yearly?'+query, {
         method: 'GET',
         signal: signal,
         headers: {
@@ -104,7 +104,7 @@ const create = async (credentials, expense) => {
   const plotExpenses = async (params, credentials, signal) => {
     const query = queryString.stringify(params)
     try {
-      let response = await fetch('https://mern-expense-tracker-appl.herokuapp.com/api/expenses/plot?'+query, {
+      let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/expenses/plot?'+query, {
         method: 'GET',
         signal: signal,
         headers: {
@@ -120,7 +120,7 @@ const create = async (credentials, expense) => {
 
   const read = async (params, signal) => {
     try {
-      let response = await fetch('https://mern-expense-tracker-appl.herokuapp.com/api/auction/' + params.auctionId, {
+      let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/auction/' + params.auctionId, {
         method: 'GET',
         signal: signal,
       })
@@ -132,7 +132,7 @@ const create = async (credentials, expense) => {
   
   const update = async (params, credentials, expense) => {
     try {
-      let response = await fetch('https://mern-expense-tracker-appl.herokuapp.com/api/expenses/' + params.expenseId, {
+      let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/expenses/' + params.expenseId, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
@@ -149,7 +149,7 @@ const create = async (credentials, expense) => {
   
   const remove = async (params, credentials) => {
     try {
-      let response = await fetch('https://mern-expense-tracker-appl.herokuapp.com/api/expenses/' + params.expenseId, {
+      let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/expenses/' + params.expenseId, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
