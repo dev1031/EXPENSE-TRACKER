@@ -2,7 +2,6 @@ const signin = async (user)=>{
     try{
         let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/signin' ,{
             method:'POST',
-            mode:"no-cors",
             headers : {
                 'Accept' : 'application/json',
                 'Content-Type':'application/json',
