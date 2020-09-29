@@ -14,21 +14,26 @@ const isAuth = require('./Auth/auth');
 const userId = require('./Auth/auth');
 const app  = express();
 
-//app.use(cors({origin:"https://expense-tracker-app-with-mern.herokuapp.com/"}));
+mongoose.connect(`${process.env.MONGODB_URL}/expense_tracker_app?retryWrites=true&w=majority`, {useNewUrlParser: true , useUnifiedTopology: true ,useFindAndModify: false }, (error , db )=>{
+  console.log('DataBase Connected!!')
+});
+
+app.options('*', cors())
+app.use(cors({origin:"https://expense-tracker-app-with-mern.herokuapp.com/"}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use((req, res, next)=>{
-    res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Credentials" ,'true');
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.setHeader('Access-Control-Allow-Headers','GET, POST, PATCH, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
-    if(req.method ==='OPTIONS'){
-            return res.sendStatus(200);
-        }
-    next()
-});
+// app.use((req, res, next)=>{
+//     res.header("Access-Control-Allow-Origin","*");
+//     res.header("Access-Control-Allow-Credentials" ,'true');
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     res.setHeader('Access-Control-Allow-Headers','GET, POST, PATCH, PUT, DELETE, OPTIONS');
+//     res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
+//     if(req.method ==='OPTIONS'){
+//             return res.sendStatus(200);
+//         }
+//     next()
+// });
 
 
 app.use(serveStatic(__dirname + "/build")); //
@@ -47,9 +52,6 @@ app.use('/', expenseRoutes);
  app.get("/", (req, res)=>{
      res.send("Server is up and running!!")
 })
-mongoose.connect(`${process.env.MONGODB_URL}/expense_tracker_app?retryWrites=true&w=majority`, {useNewUrlParser: true , useUnifiedTopology: true ,useFindAndModify: false }, (error , db )=>{
-  console.log('DataBase Connected!!')
-});
 
 app.listen(PORT, ()=>{
     console.log(`Server is up and running at PORT:${PORT}`)
