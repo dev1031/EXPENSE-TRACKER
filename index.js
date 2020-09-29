@@ -14,7 +14,7 @@ const isAuth = require('./Auth/auth');
 const userId = require('./Auth/auth');
 const app  = express();
 
-app.use(cors());
+app.use(cors({origin:"https://expense-tracker-app-with-mern.herokuapp.com/"}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
