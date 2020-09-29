@@ -18,7 +18,7 @@ mongoose.connect(`${process.env.MONGODB_URL}/expense_tracker_app?retryWrites=tru
   console.log('DataBase Connected!!')
 });
 
-app.use(cors({origin:"https://expense-tracker-app-with-mern.herokuapp.com"}));
+app.use(cors());
 app.options('*', cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
