@@ -19,27 +19,12 @@ mongoose.connect(`${process.env.MONGODB_URL}/expense_tracker_app?retryWrites=tru
 });
 
 app.use(cors());
-app.options('*', cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use((req, res, next)=>{
-    res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Credentials" ,'true');
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.setHeader('Access-Control-Allow-Headers','GET, POST, PATCH, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
-    if(req.method ==='OPTIONS'){
-            return res.sendStatus(200);
-        }
-    next()
-});
-
-
-app.use(serveStatic(__dirname + "/build")); //
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+if (process.env.NODE_ENV === "production") {
+  app.use(serveStatic(__dirname + "/build")); 
+}
 
 app.use(morgan('short'));
 app.use(cookieParser());
