@@ -1,6 +1,6 @@
 const signin = async (user)=>{
     try{
-        let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/signin' ,{
+        let response = await fetch('https://mern-money-tracker-app.herokuapp.com/api/signin' ,{
             method:'POST',
             headers : {
                 'Accept' : 'application/json',
@@ -17,7 +17,7 @@ const signin = async (user)=>{
 
 const signout = async ()=>{
     try {
-        let response = await fetch('https://expense-tracker-app-with-mern.herokuapp.com/api/signout' ,{
+        let response = await fetch('https://mern-money-tracker-app.herokuapp.com/api/signout' ,{
             method:'GET'
         })
 

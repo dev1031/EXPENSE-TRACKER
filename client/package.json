@@ -40,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"https://expense-tracker-app-with-mern.herokuapp.com"
+  "proxy":"https://mern-money-tracker-app.herokuapp.com"
 }
