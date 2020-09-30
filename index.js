@@ -14,7 +14,7 @@ const isAuth = require('./Auth/auth');
 const userId = require('./Auth/auth');
 const app  = express();
 
-mongoose.connect(`${process.env.MONGODB_URL}/expense_tracker_app?retryWrites=true&w=majority`, {useNewUrlParser: true , useUnifiedTopology: true ,useFindAndModify: false }, (error , db )=>{
+mongoose.connect('mongodb+srv://dherendra_dev:dheeru101@cluster0.r8doy.mongodb.netexpense_tracker_app?retryWrites=true&w=majority', {useNewUrlParser: true , useUnifiedTopology: true ,useFindAndModify: false }, (error , db )=>{
   console.log('DataBase Connected!!')
 });
 
